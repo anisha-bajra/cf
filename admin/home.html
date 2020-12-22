@@ -1,0 +1,181 @@
+<!doctype html>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <title>Home</title>
+  </head>
+
+  <body>
+
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+  <img id = "brand" src="../images/logo.png">
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">About Us</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Rooms</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">My Bookings</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!--Carousel-->
+   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="../images/slider3.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="../images/slider2.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="../images/slider4.jpg" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+	<div class="About-us">
+		<h4>A range of charming accomodations in Bandipur for short, medium and long term stays.</h4>
+		<p>Our idea is to offer our guests the possibility to stay in a charming place that blends tradition and modern comfort. Whether on holiday or on a working mission, we propose a smart alternative to a hotel stay and the possibility to be immersed in the vibrant daily Nepali life. Being ourselves in love with the culture and its traditions, we want our guests to experience it in the best conditions.</p>
+	</div>
+
+	<!--check availability-->
+	<div class="availability">
+		<div class="container-fluid">
+		<form action="#" method="post">
+                        <div class="row justify-content-between">
+                            <div class="col-6 col-md-2 col-lg-3">
+                                <label for="checkIn">Check In</label>
+                                <input type="date" class="form-control" id="checkIn" name="checkin-date">
+                            </div>
+                            <div class="col-6 col-md-2 col-lg-3">
+                                <label for="checkOut">Check Out</label>
+                                <input type="date" class="form-control" id="checkOut" name="checkout-date">
+                            </div>
+                            <div class="col-4 col-md-1">
+                                <label for="room">Room</label>
+                                <select name="room" id="room" class="form-control">
+                                    <option value="01">01</option>
+                                    <option value="02">02</option>
+                                    <option value="03">03</option>
+                                    <option value="04">04</option>
+                                    <option value="05">05</option>
+                                    <option value="06">06</option>
+                                </select>
+                            </div>
+                            <div class="col-4 col-md-1">
+                                <label for="adults">Adult</label>
+                                <select name="adults" id="adults" class="form-control">
+                                    <option value="01">01</option>
+                                    <option value="02">02</option>
+                                    <option value="03">03</option>
+                                    <option value="04">04</option>
+                                    <option value="05">05</option>
+                                    <option value="06">06</option>
+                                </select>
+                            </div>
+                            <div class="col-4 col-md-2 col-lg-1">
+                                <label for="children">Children</label>
+                                <select name="children" id="children" class="form-control">
+                                    <option value="01">01</option>
+                                    <option value="02">02</option>
+                                    <option value="03">03</option>
+                                    <option value="04">04</option>
+                                    <option value="05">05</option>
+                                    <option value="06">06</option>
+                                </select>
+                            </div>
+                            <div class="button col-12 col-md-3 ">
+                                <input type="submit" value="Check Availability">
+                            </div>
+                        </div>
+                    </form>
+                    </div>
+	</div>
+	<section class="popular">
+	<h2 class="text-center">
+    		Popular Destinations
+    	</h2>
+    	<div class="container">
+	    	<div class="row">
+	    		<div class="col-lg-3 col-md-6 col-xs-12">
+		  			<img src="../images/bandipur_bazar.jpg" alt="Avatar" class="image">
+		  			<div class="overlay">Bandipur Bazaar</div>
+	  			</div>
+	  			<div class="col-lg-3 col-md-6 col-xs-12">
+		  			<img src="../images/paragliding.jpg" alt="Avatar" class="image">
+		  			<div class="overlay">Paragliding</div>
+	  			</div>
+	  			<div class="col-lg-3 col-md-6 col-xs-12">
+		  			<img src="../images/hiking.jpg" alt="Avatar" class="image">
+		  			<div class="overlay">Hiking</div>
+	  			</div>
+	  			<div class="col-lg-3 col-md-6 col-xs-12">
+		  			<img src="../images/gumba.jpg" alt="Avatar" class="image">
+		  			<div class="overlay">Monastery</div>
+	  			</div>
+			</div>
+		</div>
+	</section>
+    <footer class="container-fluid text-center">
+    	<div class="row">
+	    	<div class="col-12 col-sm-6">
+	    	<ul>
+				<li><h4>Contact</h4></li>
+		    	<li>contact@bandipurinn.com</li>	
+				<li>(+977) 9860 111 757</li>
+				<li>(+977) 015528713</li>
+				<li>Follow Us</li>	
+			</ul>
+		    </div>
+	    	<div class="col-12 col-sm-6">
+	    	<ul>
+	    		<li><h4>Address</h4></li>
+	    		<li>Bandipur Inn</li>	
+				<li>Bhimsen Road</li>
+				<li>Bandipur, Tanahun</li>
+				<li>Nepal</li>		
+			</ul>
+	    	</div>
+    	</div>
+    	<p>Copyright © 2020, Bandipur Inn</p>
+    </footer>
+   
+  </body>
+</html>

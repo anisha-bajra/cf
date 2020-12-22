@@ -1,0 +1,95 @@
+* {box-sizing: border-box}
+body{
+	margin:0;
+}
+#brand{
+	width: 100px;
+	height: 70px; 
+}
+.nav-item{
+	text-align: center;
+}
+.carousel-item img{
+	height: 600px;
+}
+.About-us{
+	margin: 8% 25%;
+	text-align: center;
+}
+.availability{
+	background-color: black;
+	color: white;
+}
+.availability .container-fluid{
+	padding:50px;
+}
+.availability .button{
+	margin-top: 25px;
+}
+.availability .button input{
+	background-color: #FCA106;
+	border-radius: 25px;
+	border-style: none;
+	padding: 10px;
+
+}
+.popular{
+	margin: 50px 20px;
+
+}
+/* Container needed to position the overlay. Adjust the width as needed */
+.popular h2{
+	margin: 40px;
+}
+.popular .container{
+
+  
+  position: relative;
+
+}
+
+/* Make the image to responsive */
+.popular img {
+ 
+  width: 265px;
+  height: 265px;
+
+
+}
+
+/* The overlay effect - lays on top of the container and over the image */
+.popular .overlay {
+  position: absolute;
+  bottom: 0;
+  background: rgba(252, 161, 6, 0.8); 
+  color: #f1f1f1;
+  width: 265px;
+  transition: .3s ease;
+  opacity:0;
+  color: white;
+  font-size: 20px;
+  padding: 10px;
+  text-align: center;
+}
+
+/* When you mouse over the container, fade in the overlay title */
+.popular .container:hover .overlay {
+  opacity: 1;
+}
+p{
+	text-align: center;
+}
+footer{
+	background-color: black;
+	color: white;
+	min-height: 200px;
+	padding-top: 50px;
+}
+footer p{
+	padding-top: 50px;
+}
+
+footer ul{
+	list-style-type: none;
+}
+
