@@ -9,22 +9,27 @@
 	<form method="POST">
 		<h1>Add Admin</h1>
 		<div class="form-group">
-		    <label>Full Name</label>
-		    <input style="width:50%;" type="text" class="form-control" name="fullname" placeholder="Enter name">
+		    <label>Id</label>
+		    <input style="width:50%;" type="text" class="form-control" name="id" placeholder="Enter id">
+		</div>
+		<div class="form-group">
+		    <label>First Name</label>
+		    <input style="width:50%;" type="text" class="form-control" name="firstname" placeholder="Enter name">
+		</div>
+		<div class="form-group">
+		    <label>Last Name</label>
+		    <input style="width:50%;" type="text" class="form-control" name="lastname" placeholder="Enter last name">
 		</div>
 		<div class="form-group">
 		    <label>Email address</label>
-		    <input style="width:50%;" type="email" class="form-control" name="username" placeholder="Enter email">
+		    <input style="width:50%;" type="email" class="form-control" name="email_id" placeholder="Enter email">
 		</div>
 		<div class="form-group">
 		    <label>Password</label>
 		    <input style="width:50%;" type="password" class="form-control" name="password" placeholder="Password">
 		</div>
-	  <!-- <div class="form-check">
-	    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-	    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-	  </div> -->
-	  <input type="submit" name="submit" class="btn btn-primary" value="Add">
+	  
+	  <input type="submit" name="submit" class="btn btn-primary" value="Add Admin">
 	</form>
 	</div>
 
@@ -32,15 +37,18 @@
 
 	if(isset($_POST['submit']))
     {
-        $full_name = $_POST['fullname'];
-        $username = $_POST['username'];
+		$admin_id = $_POST['id'];
+        $firstname = $_POST['firstname'];
+		$lastname = $_POST['lastname'];
+		$email = $_POST['email_id'];
         $password = $_POST['password'];
-        echo $full_name;
 
         //SQL query for saving data in db
         $sql = "INSERT INTO tbl_admin SET 
-        	fullname = '$full_name',
-        	username = '$username',
+			admin_id = '$admin_id',
+        	firstname = '$firstname',
+        	lastname = '$lastname',
+			email_id = '$email',
         	password = '$password'
         ";
 
