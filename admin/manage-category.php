@@ -1,132 +1,63 @@
+<?php include('partials/menu.php'); ?>
+<?php include('config/constant.php'); ?>
 
-    <?php include('partials/menu.php'); ?>
-    <?php include('config/constant.php'); ?>
+        <!-- Main Content Section Starts -->
+        <div class="container my-5">
+            
+            <h1>Manage Admin</h1>
 
-<!-- Main Content Section Starts -->
-<div class="main-content">
-    <div class="wrapper">
-        <h1>Manage Category</h1>
+    
+            <!-- Button to Add Admin -->
+            <button  class="btn-secondary my-3"><a href="add-admin.php">Add Admin</a></button>
+    
 
-        <br/><br/>
-        <?php
-                if(isset($_SESSION['add']))
-                {
-                    echo $_SESSION['add'];
-                    unset($_SESSION['add']);
-                }
-                ?>
-                <br/><br/>
-        <!-- Button to Add Category -->
-        <a href="<?php echo ('http://localhost/bandipurinn/admin/add-category.php');?>" class="btn-primary">Add Category</a>
-        <br/><br/><br/>
-    <br/><br/><br/>
-
-    <table class="tbl-full">
-  <thead>
-    <tr>
-    <th>S.N</th>
-            <th>Title</th>;
-            <th>Image</th>;
-            <th>Featured</th>
-            <th>Active</th>
-            <th>Actions</th>
-            <td>
-            <a href="#" class="btn-secondary">Update Category</a>
-            <a href="#" class="btn-danger">Delete  Category</a>   
-            </td>
-         </tr>
-  </thead>
-
-                <?php   
-                //To get categories from db
-                $sql = "SELECT * FROM tbl_category";
-
-                //Execute query
-                $res = mysqli_query($conn , $sql);
-
-                //Count Rows
-                $count = mysqli_num_rows($res);
-
-                //Check data in db
-                if($count>0)
-                {
-                    //we have data in db
-                    //get data and displau
-                    while($row=mysqli_fetch_assoc($res)) //fetch data fromdb and save in row which will be in array format
-                    {
-                        $id = $row['id'];
-                        $title = $row['title'];
-                        $image_name = $row['image_name'];
-                        $featured = $row['featured'];
-                        $active = $row['active'];
-                       
-                       
-                       ?>
-                     <tbody>
-                     <tr>
-                     <th>1</th>
-                                <th><?php echo $title; ?></th>
-                                <th><?php echo $image_name; ?></th>;
-                                <th><?php $featured; ?></th>
-                                <th><?php $active; ?></th>
-                                <td>
-                                <a href="#" class="btn-secondary">Update  Category</a>
-                                <a href="#" class="btn-danger">Delete  Category</a>   
-                                </td>
-                            </tr>
-                     <tr>
-                        <th>2</th>
-                        <th><?php echo $title; ?></th>
-                                <th><?php echo $image_name; ?></th>
-                                <th><?php $featured; ?></th>
-                                <th><?php $active; ?></th>
-                                <td>
-                                <a href="#" class="btn-secondary">Update  Category</a>
-                                <a href="#" class="btn-danger">Delete  Category </a>   
-                                </td>
-                        </tr>
-                        <tr>
-                        <th>3</th>
-                        <th><?php echo $title; ?></th>
-                                <th><?php echo $image_name; ?></th>
-                                <th><?php $featured; ?></th>
-                                <th><?php $active; ?></th>
-                                <td>
-                                <a href="#" class="btn-secondary">Update  Category</a>
-                                <a href="#" class="btn-danger">Delete  Category</a>   
-                                </td>
-                         </tr>
-                                </tbody>
-                                    </table>
-
+            <table class="table  my-3">
+            <thead class="thead-dark">
+                <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Room Category</th>
+                <th scope="col">EDIT</th>
+                <th scope="col">DELETE</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php      
+                $sql = "SELECT  `room_type_id`, `type_name` FROM room_type";
+                $res = mysqli_query($conn, $sql) or die(mysqli_error());
+                $num = mysqli_num_rows($res);
                 
-                        <?php
+                if ($num > 0) {
+            // output data of each row
+            while($row = mysqli_fetch_array($res)) { ?>
 
+            
+                <tr>
+                <th><?php echo $row['room_type_id'];?></th>
+                <td><?php echo $row['type_name'];?></td>
+                <td> <input type= "submit" name="edit" class="btn btn-primary btn-sm" value="Edit"> </td>
+                <td>
+                    <form id="del-form" method ="POST">
+                    <input type="hidden" name="delete" value="<?php echo $row['room_type_id']; ?>">
+                    <input type= "submit" onclick="delete_record();" name="delete-btn" class="btn btn-danger btn-sm" value="Delete"></form> </td>
+                </tr>
+            <?php
+            }}
+            ?>
+            </tbody>   
+            </table>
 
-                        
-                                    }
-                                }
-                                else
-                                {
-                                    //we dont have data
-                                    //display msg inside table
-                                    ?>  <!--broken php to start anther just to write html code in betn -->
+        </div>
+        <script>
+            function delete_record()
+            {
+                if(confirm("Do you want to Delete!"))
+                {
+                    document.getElementById("del-form").action="delete-record.php";
+                }
+            }
 
-                                    <tr>
-                                        <td colspan="6"><div class="error">No Category Added.</div><td>
-                                    </tr>
+        </script>
+        
 
-
-
-
-                                    <?php
-                                }
-
-                                ?>
-
-
-
-
-
-
-                <?php include('partials/footer.php'); ?>
+        
+<?php include('partials/footer.php'); ?>            

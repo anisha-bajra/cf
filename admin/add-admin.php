@@ -5,7 +5,7 @@
 
 
 
-	<div class="container align-items-center my-5 mx-5">
+	<div class="container my-5">
 	<form method="POST">
 		<h1>Add Admin</h1>
 		<div class="form-group">
