@@ -11,7 +11,7 @@
             <a href="add-category.php" class="btn btn-secondary btn-sm my-3">Add Category</a>
     
 
-            <table class="table  my-5">
+            <table class="table  my-4">
             <thead class="thead-dark">
                 <tr>
                 <th scope="col">Id</th>
@@ -50,7 +50,7 @@
         <script>
             function delete_record()
             {
-                if(confirm("Do you want to Delete!"))
+                if(confirm("Do you want to Delete?"))
                 {
                     document.getElementById("del-form").action="delete-record.php";
                 }
