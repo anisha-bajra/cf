@@ -1,4 +1,5 @@
-<?php include('site-menu.php') ?>
+<?php include('site-menu.php'); ?>
+<?php include('../admin/config/constant.php'); ?>
 
     <section class="site-hero inner-page overlay" style="background-image: url(images/hero_4.jpg)" data-stellar-background-ratio="0.5">
       <div class="container">
@@ -89,84 +90,36 @@
       <div class="container">
         
         <div class="row">
-          <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up">
-            <a href="#" class="room">
-              <figure class="img-wrap">
-                <img src="images/img_1.jpg" alt="Free website template" class="img-fluid mb-3">
-              </figure>
-              <div class="p-3 text-center room-info">
-                <h2>Single Room</h2>
-                <span class="text-uppercase letter-spacing-1">90$ / per night</span>
-              </div>
-            </a>
-          </div>
+          <?php
+            $sql = "SELECT `room_id`,`room_name`,`room_type_id`,`room_description`, `room_image`, `current_price` FROM rooms";
+            $res = mysqli_query($conn, $sql) or die(mysqli_error());
+            $num = mysqli_num_rows($res);
+            
+            if ($num > 0) {
+              // output data of each row
+              while($row = mysqli_fetch_array($res)) { ?>
 
-          <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up">
-            <a href="#" class="room">
-              <figure class="img-wrap">
-                <img src="images/img_2.jpg" alt="Free website template" class="img-fluid mb-3">
-              </figure>
-              <div class="p-3 text-center room-info">
-                <h2>Family Room</h2>
-                <span class="text-uppercase letter-spacing-1">120$ / per night</span>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up">
-            <a href="#" class="room">
-              <figure class="img-wrap">
-                <img src="images/img_3.jpg" alt="Free website template" class="img-fluid mb-3">
-              </figure>
-              <div class="p-3 text-center room-info">
-                <h2>Presidential Room</h2>
-                <span class="text-uppercase letter-spacing-1">250$ / per night</span>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up">
-            <a href="#" class="room">
-              <figure class="img-wrap">
-                <img src="images/img_1.jpg" alt="Free website template" class="img-fluid mb-3">
-              </figure>
-              <div class="p-3 text-center room-info">
-                <h2>Single Room</h2>
-                <span class="text-uppercase letter-spacing-1">90$ / per night</span>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up">
-            <a href="#" class="room">
-              <figure class="img-wrap">
-                <img src="images/img_2.jpg" alt="Free website template" class="img-fluid mb-3">
-              </figure>
-              <div class="p-3 text-center room-info">
-                <h2>Family Room</h2>
-                <span class="text-uppercase letter-spacing-1">120$ / per night</span>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up">
-            <a href="#" class="room">
-              <figure class="img-wrap">
-                <img src="images/img_3.jpg" alt="Free website template" class="img-fluid mb-3">
-              </figure>
-              <div class="p-3 text-center room-info">
-                <h2>Presidential Room</h2>
-                <span class="text-uppercase letter-spacing-1">250$ / per night</span>
-              </div>
-            </a>
-          </div>
-
+                <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up">
+                  <a href="room-detail.php" class="room">
+                    <figure class="img-wrap">
+                      <img src="images/<?php echo $row['room_image'] ?>" alt="Room Image" class="img-fluid mb-3">
+                    </figure>
+                    <div class="p-3 text-center room-info">
+                      <h2><?php echo $row['room_name'] ?></h2>
+                      <span class="text-uppercase letter-spacing-1">&#36; <?php echo $row['current_price'] ?></span>
+                    </div>
+                  </a>
+                </div>
+            <?php 
+            }
+          } ?>
         </div>
       </div>
     </section>
     
-    <section class="section bg-light">
 
+
+    <!-- <section class="section bg-light">
       <div class="container">
         <div class="row justify-content-center text-center mb-5">
           <div class="col-md-7">
@@ -195,7 +148,7 @@
         </div>
 
       </div>
-    </section>
+    </section> -->
 
     <section class="section bg-image overlay" style="background-image: url('images/hero_4.jpg');">
       <div class="container" >

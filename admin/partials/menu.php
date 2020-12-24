@@ -34,6 +34,9 @@
           <a class="nav-link" href="manage-category.php">Categories</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="manage-room.php">Rooms</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="#">Bookings</a>
         </li>
       </ul>

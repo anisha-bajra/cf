@@ -6,7 +6,14 @@
 
 
 	<div class="container my-5">
-	<form method="POST">
+	<form method="POST" enctype="multipart/form-data">
+	 <?php
+	 if(isset($_SESSION['upload']))
+	 {
+		 echo $_SESSION['upload'];
+		 unset($_SESSION['upload']);
+	 }
+	 ?>
 		<h1>Add Rooms</h1>
 
 		<div class="form-group">
@@ -31,7 +38,7 @@
 
         <div class="form-group">
 		    <label>Room Image</label>
-		    <input style="width:50%;" type="text" class="form-control" name="room_image" >
+		    <input style="width:50%;" type="file" class="form-control" name="image" >
 		</div>
 
         <div class="form-group">
@@ -52,9 +59,32 @@
 		$room_id = $_POST['room_id'];
         $room_name = $_POST['room_name'];
         $room_type_id = $_POST['room_type_id'];
-        $room_description = $_POST['room_description'];
-        $room_image = $_POST['room_image'];
-        $current_price = $_POST['current_price'];
+		$room_description = $_POST['room_description'];
+		$current_price = $_POST['current_price'];
+		
+		//FOR IMAGE UPLOAD
+		$room_image = $_FILES['image']['name'];
+		$source_path = $_FILES['image']['tmp_name'];
+		$destination_path ="../site/images/".$room_image;
+
+        //now upload
+        $upload = move_uploaded_file($source_path , $destination_path);
+
+        //check whether the image is uploaded or not
+                 //And if its not uploaded then we will stop process and ridrect with error message
+
+		if($upload==false)
+		{
+			$_SESSION['upload'] = "<div class='error'>Failed to upload image. </div>";
+
+			 //redirect to add category page
+			header('location:'.SITEURL.'admin/add-category.php'); 
+
+			//sstop the process
+			die();
+
+
+		}              
 
         //SQL query for saving data in db
         $sql = "INSERT INTO rooms SET 

@@ -51,9 +51,9 @@
                         <li><a href="#room_menu" data-toggle="collapse">Rooms</a>
                           <div class="collapse pl-3" id="room_menu">
                             <ul class="list-unstyled menu">
-                              <li><a href="#">Single Room</a></li>
-                              <li><a href="#">Family Room</a></li>
-                              <li><a href="#">Extra Standard Room</a></li>
+                              <li><a href="rooms.php">Single Room</a></li>
+                              <li><a href="rooms.php">Family Room</a></li>
+                              <li><a href="rooms.php">Extra Standard Room</a></li>
                             </ul>
                           </div>
                           </li>

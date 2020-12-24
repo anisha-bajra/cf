@@ -103,7 +103,7 @@
       <div class="container destinations">
         <div class="row justify-content-center text-center mb-5">
           <div class="col-md-7">
-            <h2 class="heading" data-aos="fade-up">Popular Destinations</h2>
+            <h2 class="heading" data-aos="fade-up"><a href="destinations.php">Popular Destinations</a></h2>
             <p data-aos="fade-up" data-aos-delay="100">Here are few nearby destinations from our inn worth a visit.</p>
           </div>
         </div>
