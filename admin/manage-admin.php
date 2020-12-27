@@ -42,9 +42,10 @@
                 <td><?php echo $row['password'];?></td>
                 <td> <input type= "submit" name="edit" class="btn btn-primary btn-sm" value="Edit"> </td>
                 <td>
-                    <form id="del-form" method ="POST">
-                        <input type="hidden" name="delete" value="<?php echo $row['admin_id']; ?>">
-                        <input type= "submit" onclick="delete_record();" name="delete-admin" class="btn btn-danger btn-sm" value="Delete">
+                    <form action="delete-record.php" method ="GET">
+                        
+                        <input type="hidden" name="delete" value="<?php echo $row['admin_id'];?>">
+                        <input type="submit" onclick="return delete_record()" name="delete-admin" class="btn btn-danger btn-sm" value="Delete">
                     </form>
                 </td>
                 </tr>
@@ -58,11 +59,9 @@
         <script>
             function delete_record()
             {
-                if(confirm("Do you want to Delete?"))
-                {
-                    document.getElementById("del-form").action="delete-record.php";
-                }
-                return true;
+                
+                return confirm("Do you want to Delete?");
+                
             }
 
         </script>

@@ -27,8 +27,12 @@
 		</div>
 
         <div class="form-group">
-		    <label>Room Type Id</label>
-		    <input style="width:50%;" type="text" class="form-control" name="room_type_id">
+		    <label>Room Type</label>
+			<select style="width:50%;"  class="form-control" name="room_type">
+	 			<option>Single</option>
+				<option>Family</option>
+				<option>Extra Standard</option>
+			</select>
 		</div>
 
         <div class="form-group">
@@ -58,9 +62,19 @@
     {
 		$room_id = $_POST['room_id'];
         $room_name = $_POST['room_name'];
-        $room_type_id = $_POST['room_type_id'];
 		$room_description = $_POST['room_description'];
 		$current_price = $_POST['current_price'];
+
+		//GET ROOM TYPE ID FROM ROOM TYPE 
+		$room_type = $_POST['room_type'];
+		$sql = "SELECT * FROM room_type WHERE type_name = '$room_type';";
+		$res =  mysqli_query($conn, $sql);
+		$row = mysqli_fetch_array($res);
+		$room_type_id = $row['room_type_id'];
+		echo $room_type_id;
+
+
+
 		
 		//FOR IMAGE UPLOAD
 		$room_image = $_FILES['image']['name'];
